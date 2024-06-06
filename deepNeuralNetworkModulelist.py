@@ -179,4 +179,19 @@ optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
 train_loader = DataLoader(dataset=data_set, batch_size=20)
 criterion = nn.CrossEntropyLoss()
 LOSS = train(data_set, model, criterion, train_loader, optimizer, epochs=1000)
-            
+#plot the decision regions
+plot_decision_regions_3class(model, data_set)   
+#practice with 4 hidden layers
+print("training with 4 hidden layers with 5 neurons...")
+Layers = [2, 5, 5, 5, 5, 3]
+model = Net(Layers)
+learning_rate = 0.01
+optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)       
+train_loader = DataLoader(dataset=data_set, batch_size=20)  
+criterion = nn.CrossEntropyLoss()
+LOSS = train(data_set, model, criterion, train_loader, optimizer, epochs=1000)
+#plot the decision regions
+plot_decision_regions_3class(model, data_set)
+
+
+print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>end of deepNeuralNetworkModulelist<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
